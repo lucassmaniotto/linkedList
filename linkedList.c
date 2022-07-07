@@ -45,7 +45,7 @@ void printEmployee(Employee *first){
     Employee *aux;
 
     for(aux = first; aux != NULL; aux = aux->next)
-        printf("%d %s %lf\n", aux->id, aux->name, aux->salary);
+        printf("%d %s %.2lf\n", aux->id, aux->name, aux->salary);
     printf("\n");
 }
 
