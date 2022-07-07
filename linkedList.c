@@ -45,6 +45,23 @@ Employee *addTail(Employee *first, Employee *new){
     return first;
 }
 
+Employee *addAfter(Employee *first, Employee *new, int id){
+    Employee *aux;
+    if(emptyList(first))
+        return new;
+    for(aux = first; aux != NULL; aux = aux->next){
+        if(aux->id == id){
+            new->next = aux->next;
+            aux->next = new;
+        }
+    }
+    return first;
+}
+/*Employee *addBefore(Employee *first, Employee *new, int id){
+
+}
+*/
+
 Employee *createEmploye(int id, char name[], double salary){
 
     Employee *new = malloc(sizeof(Employee));
@@ -82,6 +99,7 @@ int main (){
     first = addHead(first, createEmploye(3, "Teste 3", 2548.78));
     first = addHead(first, createEmploye(4, "Teste 4", 2548.78));
     first = addTail(first, createEmploye(0, "Teste 0", 2548.78));
+    first = addAfter(first, (createEmploye(7, "Teste 0", 2548.78)), 3);
 
     printEmployee(first);
     printEmployeeReverse(first);
